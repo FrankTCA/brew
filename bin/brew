@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/local/bin/bash
 set +o posix
 
 # Fail fast with concise message when cwd does not exist
@@ -104,7 +104,7 @@ then
     FILTERED_ENV+=( "${VAR}=${!VAR}" )
   done
 
-  exec /usr/bin/env -i "${FILTERED_ENV[@]}" /bin/bash "$HOMEBREW_LIBRARY/Homebrew/brew.sh" "$@"
+  exec /usr/bin/env -i "${FILTERED_ENV[@]}" /usr/local/bin/bash "$HOMEBREW_LIBRARY/Homebrew/brew.sh" "$@"
 else
   # Don't need shellcheck to follow this `source`.
   # shellcheck disable=SC1090
