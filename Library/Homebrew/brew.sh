@@ -8,6 +8,7 @@ HOMEBREW_SYSTEM="$(uname -s)"
 case "$HOMEBREW_SYSTEM" in
   Darwin) HOMEBREW_MACOS="1" ;;
   Linux)  HOMEBREW_LINUX="1" ;;
+  FreeBSD) HOMEBREW_FREEBSD="1" ;; # Modified line
 esac
 
 # Where we store built products; a Cellar in HOMEBREW_PREFIX (often /usr/local
@@ -260,6 +261,10 @@ fi
 
 # USER isn't always set so provide a fall back for `brew` and subprocesses.
 export USER=${USER:-$(id -un)}
+
+# Modified section
+HOMEBREW_CURL_PATH="/usr/local/bin/curl"
+HOMEBREW_GIT_PATH="/usr/local/bin/git"
 
 # A depth of 1 means this command was directly invoked by a user.
 # Higher depths mean this command was invoked by another Homebrew command.
